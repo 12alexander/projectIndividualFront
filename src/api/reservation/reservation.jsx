@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const RegisterReservation = (data) => {
-  const url = "http://localhost:5000/api/reservation/create";
+  const url = process.env.REACT_APP_BACKEND_ENDPOINT.concat(
+    "api/reservation/create"
+  );
+  //const url = "http://localhost:5000/api/reservation/create";
   console.log("estamos en reservation");
   console.log(data);
   return axios.post(url, data);
