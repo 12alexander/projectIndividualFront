@@ -1,0 +1,42 @@
+.titulo {
+  font-family: "UnifrakturMaguntia", cursive;
+  margin: 0;
+  font-size: 3rem;
+}
+
+.linea {
+  width: 45px;
+  height: 10px;
+  background-color: black;
+}
+
+.b-input {
+  background-color: #eee !important;
+  border-radius: 45px !important;
+}
+
+.container-titulo {
+  height: 360px;
+}
+
+.btn-enviar {
+  padding: 25px !important;
+  background-color: black !important;
+  color: white;
+}
+
+.contac-body {
+  padding-top: 10%;
+}
+
+.contac-img {
+  padding-top: 2%;
+  width: 100%;
+  height: calc(100% - 60px);
+  object-fit: contain;
+}
+.services {
+  padding-top: 5rem;
+  font-family: "UnifrakturMaguntia", cursive;
+  font-size: 3rem;
+}

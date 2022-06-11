@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Landing from "./pages/landing/Main";
+import Packages from "./pages/packages/Packages.jsx";
+import CardPackages from "./pages/packages/components/CardPackages";
+import ComponentFormPackages from "./pages/packages/components/Form";
+import ComponentFormArtist from "./pages/artist/components/Form";
+import CardReservation from "./pages/reservations/components/CardReservation";
+import Artist from "./pages/artist/Artist.jsx";
+import Reservations from "./pages/reservations/Reservations";
+import CardArtist from "./pages/artist/components/CardArtist";
+import Confirmation from "./pages/confirmation/Confirmation";
+import ReservationSuccessful from "./pages/confirmation/components/reservationSuccessful";
+import Login from "./pages/login/login";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/package/" element={<Packages />}>
+            <Route path="create" element={<ComponentFormPackages />} />
+            <Route path="view" element={<CardPackages />} />
+          </Route>
+          <Route path="/artist/" element={<Artist />}>
+            <Route path="create" element={<ComponentFormArtist />} />
+            <Route path="view" element={<CardArtist />} />
+          </Route>
+          <Route path="/reservation/" element={<Reservations />}>
+            <Route path="create" element={<CardReservation />} />
+            {/*<Route path="view" element={<CardArtist />} />*/}
+          </Route>
+          <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/succes" element={<ReservationSuccessful />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

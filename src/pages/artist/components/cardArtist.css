@@ -1,0 +1,14 @@
+.container-artist {
+  padding-top: 3rem;
+}
+
+.content-column {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.artist-img {
+  width: 16rem;
+  height: 10rem;
+  margin-top: 1rem;
+}
