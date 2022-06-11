@@ -8,8 +8,10 @@ const RegisterReservation = (data) => {
 };
 
 const GetHours = (data) => {
-  //const url = process.env.REACT_APP_BACKEND_ENDPOINT.concat("package/getData");
-  const url = "http://localhost:5000/api/reservation/findHour";
+  const url = process.env.REACT_APP_BACKEND_ENDPOINT.concat(
+    "api/reservation/findHour"
+  );
+  //const url = "http://localhost:5000/api/reservation/findHour";
   let dataHours = {};
   try {
     dataHours = axios.post(url, data);

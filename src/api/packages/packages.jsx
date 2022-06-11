@@ -3,7 +3,9 @@ import { Alert } from "react-bootstrap";
 import axios from "axios";
 
 const RegisterPackage = (data) => {
-  const url = "http://localhost:5000/api/package/create";
+  const url =
+    process.env.REACT_APP_BACKEND_ENDPOINT.concat("api/package/create");
+  //const url = "http://localhost:5000/api/package/create";
   console.log("----------");
   const formData = new FormData();
   console.log("----------");
@@ -15,7 +17,6 @@ const RegisterPackage = (data) => {
     console.log("imagenes");
     console.log(el);
   });
-
 
   axios
     .post(url, formData, {
