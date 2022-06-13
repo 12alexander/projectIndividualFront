@@ -11,6 +11,7 @@ import CardArtist from "./pages/artist/components/CardArtist";
 import Confirmation from "./pages/confirmation/Confirmation";
 import ReservationSuccessful from "./pages/confirmation/components/reservationSuccessful";
 import Login from "./pages/login/login";
+import RegisterLogin from "./pages/login/register";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -36,6 +37,7 @@ function App() {
           </Route>
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<RegisterLogin />} />
           <Route path="/succes" element={<ReservationSuccessful />} />
         </Routes>
       </BrowserRouter>

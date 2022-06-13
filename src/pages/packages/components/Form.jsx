@@ -2,9 +2,10 @@
 import { useState, useEffect } from "react";
 import {} from "../../../api/packages/packages";
 import { RegisterPackage } from "../../../api/packages/packages";
-import { Card, Button, Col, Row, Form } from "react-bootstrap/";
+import { Alert, Button, Col, Row, Form } from "react-bootstrap/";
 
 const ComponentForm = () => {
+  const [message, setMessage] = useState("");
   const [dataPackages, setDataPackages] = useState({
     title: "",
     description: "",
@@ -12,13 +13,26 @@ const ComponentForm = () => {
     images: [],
   });
   const handleData = (event) => {
-    RegisterPackage(dataPackages);
-    console.log(dataPackages);
+    RegisterPackage(dataPackages)
+      .then((response) => {
+        if (response.status === 200) {
+          setMessage("Paquete Guardado Exitosamente");
+        }
+      })
+      .catch((err) => {
+        setMessage("Error al Guardar Paquete");
+        console.log(err);
+      });
   };
 
   return (
     <>
-      <Form>
+      {message && (
+        <Alert variant="success" onClose={() => setMessage("")} dismissible>
+          <Alert.Heading>{message}</Alert.Heading>
+        </Alert>
+      )}
+      <Form style={{ paddingTop: "3rem" }}>
         <Form.Group as={Col} className="mb-3">
           <Form.Label>Título</Form.Label>
           <Form.Control
@@ -68,7 +82,7 @@ const ComponentForm = () => {
         </Form.Group>
 
         <Button variant="primary" onClick={handleData}>
-          Submit
+          Registrar
         </Button>
       </Form>
     </>

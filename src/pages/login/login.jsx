@@ -35,10 +35,16 @@ const Login = () => {
 
     PostLogin(user)
       .then((response) => {
+        console.log("tipe desde el front ----------------------");
+        console.log(response);
         if (response.status === 200) {
           setBol("bienvenido");
           dispatch(
-            setReservation({ token: response.data.message, user: user.email })
+            setReservation({
+              token: response.data.message,
+              user: user.email,
+              type: response.data.type,
+            })
           );
           navigate(`/`);
         }
@@ -65,7 +71,7 @@ const Login = () => {
   return (
     <>
       <ComponentNavbar />
-      <Container>
+      <Container style={{ paddingTop: "3rem" }}>
         {bol && (
           <Alert variant="success" onClose={() => setBol("")} dismissible>
             <Alert.Heading>{bol}</Alert.Heading>

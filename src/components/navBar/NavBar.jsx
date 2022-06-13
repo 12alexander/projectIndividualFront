@@ -4,10 +4,17 @@ import "./NavBar.css";
 import IMG from "../../assets/logo_negro_mostacho.png";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Container, Nav, NavDropdown, Image } from "react-bootstrap/";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteToken } from "../../store/slices/reservation";
 
 const ComponentNavbar = () => {
+  const reservation = useSelector((state) => {
+    console.log(state);
+    return state;
+  });
+
+  const type = reservation.reservation.reservation.type;
+  const label = type === "admin" ? "Paquete" : "Reservación";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
@@ -30,15 +37,17 @@ const ComponentNavbar = () => {
 
             <Nav.Link
               onClick={() => {
-                navigate("/package/view");
+                navigate(
+                  type === "admin" ? "/package/create" : "/package/view"
+                );
               }}
             >
-              Reservar
+              {label}
             </Nav.Link>
 
             <Nav.Link
               onClick={() => {
-                navigate("/artist/view");
+                navigate(type === "admin" ? "/artist/create" : "/artist/view");
               }}
             >
               Artistas
@@ -51,6 +60,13 @@ const ComponentNavbar = () => {
                 }}
               >
                 Iniciar Sesión
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onClick={() => {
+                  navigate("/register");
+                }}
+              >
+                Registrar
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item

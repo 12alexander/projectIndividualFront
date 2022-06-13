@@ -19,7 +19,7 @@ const ComponentForm = () => {
         }
       })
       .catch((err) => {
-        setMessage("Error al Artisa");
+        setMessage("Error al Guardar Artisa");
         console.log(err);
       });
   };
@@ -50,7 +50,7 @@ const ComponentForm = () => {
           <Alert.Heading>{message}</Alert.Heading>
         </Alert>
       )}
-      <Form>
+      <Form style={{ paddingTop: "3rem" }}>
         <Form.Group as={Col} className="mb-3">
           <Form.Label>Nombre</Form.Label>
           <Form.Control
@@ -86,7 +86,7 @@ const ComponentForm = () => {
           ))}
         </div>
         <Button variant="primary" onClick={handleData}>
-          Submit
+          Registrar
         </Button>
       </Form>
     </>
