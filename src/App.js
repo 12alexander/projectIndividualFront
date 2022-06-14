@@ -9,6 +9,7 @@ import Artist from "./pages/artist/Artist.jsx";
 import Reservations from "./pages/reservations/Reservations";
 import CardArtist from "./pages/artist/components/CardArtist";
 import Confirmation from "./pages/confirmation/Confirmation";
+import Dashboard from "./pages/dashboard/Dashboard";
 import ReservationSuccessful from "./pages/confirmation/components/reservationSuccessful";
 import Login from "./pages/login/login";
 import RegisterLogin from "./pages/login/register";
@@ -39,6 +40,16 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<RegisterLogin />} />
           <Route path="/succes" element={<ReservationSuccessful />} />
+          <Route path="/dashboard/" element={<Dashboard />}>
+            <Route path="artist/">
+              <Route path="create" element={<ComponentFormArtist />} />
+              <Route path="view" element={<CardArtist />} />
+            </Route>
+            <Route path="package/">
+              <Route path="create" element={<ComponentFormPackages />} />
+              <Route path="view" element={<CardPackages />} />
+            </Route>
+          </Route>
         </Routes>
       </BrowserRouter>
     </Provider>

@@ -14,6 +14,15 @@ const RegisterArtist = (data) => {
   return axios.post(url, formData);
 };
 
+const DeleteArtist = (data) => {
+  const config = { headers: { "Content-Type": "application/json" } };
+  console.log(`data -----> ${data.id}`);
+  const url =
+    process.env.REACT_APP_BACKEND_ENDPOINT.concat("api/artist/remove");
+
+  return axios.post(url, data, config);
+};
+
 const GetArtist = async (token) => {
   const url =
     process.env.REACT_APP_BACKEND_ENDPOINT.concat("api/artist/getData");
@@ -31,4 +40,4 @@ const GetArtist = async (token) => {
   return dataArtist.data;
 };
 
-export { GetArtist, RegisterArtist };
+export { GetArtist, RegisterArtist, DeleteArtist };

@@ -86,7 +86,7 @@ const ComponentForm = () => {
           ))}
         </div>
         <Button variant="primary" onClick={handleData}>
-          Registrar
+          Submit
         </Button>
       </Form>
     </>

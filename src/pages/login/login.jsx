@@ -46,7 +46,12 @@ const Login = () => {
               type: response.data.type,
             })
           );
-          navigate(`/`);
+          console.log(`este es el tipo ${response.data.type}`);
+          if (response.data.type === "admin") {
+            navigate(`/dashboard`);
+          } else {
+            navigate(`/`);
+          }
         }
       })
       .catch((err) => {
