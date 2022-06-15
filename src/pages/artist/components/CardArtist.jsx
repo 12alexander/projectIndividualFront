@@ -10,17 +10,17 @@ import "./cardArtist.css";
 const CardArtist = () => {
   const dispatch = useDispatch();
   const reservation = useSelector((state) => {
-    console.log(state);
     return state;
   });
+  const type = reservation.reservation.reservation.type;
   let navigate = useNavigate();
   const [dataArtist, setDataArtist] = useState([]);
-  const type = reservation.reservation.reservation.type;
+
   const getDataArtist = async () => {
     const token = reservation?.reservation?.reservation?.token;
-    console.log(token);
+
     const data = await GetArtist(token);
-    console.log(data.value);
+
     setDataArtist(data.value);
   };
   useEffect(() => {
@@ -44,12 +44,11 @@ const CardArtist = () => {
                 <Card.Title style={{ textTransform: "uppercase" }}>
                   {e.name}
                 </Card.Title>
+                <br></br>
                 {type === "admin" && (
                   <Button
                     variant="danger"
                     onClick={() => {
-                      console.log("el idd esss");
-                      console.log(e._id);
                       DeleteArtist({ id: e._id });
                       let tempDataArtist = [...dataArtist];
                       tempDataArtist = tempDataArtist.filter(

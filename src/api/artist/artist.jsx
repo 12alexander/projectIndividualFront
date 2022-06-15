@@ -16,7 +16,6 @@ const RegisterArtist = (data) => {
 
 const DeleteArtist = (data) => {
   const config = { headers: { "Content-Type": "application/json" } };
-  console.log(`data -----> ${data.id}`);
   const url =
     process.env.REACT_APP_BACKEND_ENDPOINT.concat("api/artist/remove");
 

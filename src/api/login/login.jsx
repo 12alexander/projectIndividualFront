@@ -16,8 +16,6 @@ const RegisterLogin = (data) => {
     process.env.REACT_APP_BACKEND_ENDPOINT.concat("api/user/register");
   //const url = "http://localhost:5000/api/user/login";
 
-  console.log("en login front");
-  console.log(data);
 
   return axios.post(url, data, config);
 };

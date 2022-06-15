@@ -49,7 +49,7 @@ export default function Header() {
             onClick={() => {
               navigate("/");
               dispatch(deleteToken({}));
-              console.log("hola");
+      
             }}
           >
             Salir

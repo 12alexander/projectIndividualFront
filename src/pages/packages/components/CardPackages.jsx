@@ -10,9 +10,9 @@ import "./cardPackages.css";
 const CardPackages = () => {
   const dispatch = useDispatch();
   const reservation = useSelector((state) => {
-    console.log(state);
     return state;
   });
+  const type = reservation.reservation.reservation.type;
   const [dataPackage, setDataPackage] = useState([]);
   const getDataPackage = () => {
     GetPackage().then((datos) => {
@@ -33,19 +33,23 @@ const CardPackages = () => {
               <Card.Body>
                 <Card.Title>{e.title}</Card.Title>
                 <Card.Text>{e.description}</Card.Text>
-                <Button
-                  variant="secondary"
-                  onClick={() => {
-                    dispatch(
-                      setReservation({
-                        package: { id: e._id, ...e },
-                      })
-                    );
-                    navigate(`/artist/view`);
-                  }}
-                >
-                  Comprar (S/. {e.price.$numberDecimal})
-                </Button>
+
+                {type === "admin" && <Button variant="danger">Eliminar</Button>}
+                {type !== "admin" && (
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      dispatch(
+                        setReservation({
+                          package: { id: e._id, ...e },
+                        })
+                      );
+                      navigate(`/artist/view`);
+                    }}
+                  >
+                    Comprar (S/. {e.price.$numberDecimal})
+                  </Button>
+                )}
               </Card.Body>
             </Card>
           </Col>

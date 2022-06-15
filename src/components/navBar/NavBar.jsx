@@ -9,7 +9,6 @@ import { deleteToken } from "../../store/slices/reservation";
 
 const ComponentNavbar = () => {
   const reservation = useSelector((state) => {
-    console.log(state);
     return state;
   });
 

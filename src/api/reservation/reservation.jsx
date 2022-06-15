@@ -5,8 +5,6 @@ const RegisterReservation = (data) => {
     "api/reservation/create"
   );
   //const url = "http://localhost:5000/api/reservation/create";
-  console.log("estamos en reservation");
-  console.log(data);
   return axios.post(url, data);
 };
 
@@ -21,7 +19,6 @@ const GetHours = (data) => {
   } catch (err) {
     console.log(err);
   }
-  console.log("data hours desde front");
   return dataHours.then((data) => data.data.value);
 };
 

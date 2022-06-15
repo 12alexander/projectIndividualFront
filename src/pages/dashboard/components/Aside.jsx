@@ -5,12 +5,10 @@ import { useSelector } from "react-redux";
 
 export default function Aside() {
   const reservation = useSelector((state) => {
-    console.log(state);
     return state;
   });
   let navigate = useNavigate();
-  console.log("---------------------------");
-  console.log(reservation);
+
   //const token = reservation.reservation.reservation.token;
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
@@ -28,9 +26,7 @@ export default function Aside() {
         {/* Sidebar user panel (optional) */}
         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
           <div className="info">
-            <a href="#" className="d-block">
-              Alexander Pierce
-            </a>
+            <a href="#" className="d-block"></a>
           </div>
         </div>
 

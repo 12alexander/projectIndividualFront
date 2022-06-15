@@ -27,8 +27,6 @@ const CardReservation = () => {
 
   const dataArtist = reservation.reservation.artist;
   const dataPackage = reservation.reservation.package;
-  console.log("///////////////////////////////////");
-  console.log(day);
   return (
     <div className="container" style={{ paddingTop: "3.5rem" }}>
       <div className="row">

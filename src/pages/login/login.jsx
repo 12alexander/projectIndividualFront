@@ -23,7 +23,7 @@ const Login = () => {
     return state;
   });
   const dataArtist = reservation.reservation.token;
-  console.log(dataArtist);
+
   const [bol, setBol] = useState("");
   const [user, setUser] = useState({
     email: "",
@@ -31,12 +31,10 @@ const Login = () => {
   });
   const handleClick = (e) => {
     e.preventDefault();
-    console.log("tokennnn");
+
 
     PostLogin(user)
       .then((response) => {
-        console.log("tipe desde el front ----------------------");
-        console.log(response);
         if (response.status === 200) {
           setBol("bienvenido");
           dispatch(
@@ -46,7 +44,6 @@ const Login = () => {
               type: response.data.type,
             })
           );
-          console.log(`este es el tipo ${response.data.type}`);
           if (response.data.type === "admin") {
             navigate(`/dashboard`);
           } else {
@@ -58,8 +55,6 @@ const Login = () => {
         console.log(err);
       });
 
-    console.log("**************** reservation");
-    console.log(reservation);
   };
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -70,8 +65,6 @@ const Login = () => {
       ? reservation.reservation.reservation.token
       : "";
     if (token != "") navigate(`/`);
-    console.log(token);
-    console.log(reservation.reservation.reservation.token);
   }, []);
   return (
     <>

@@ -17,8 +17,6 @@ const Reservation = () => {
   const hour = reservation.reservation.hour;
   const userEmail = reservation.reservation.user;
   const day = reservation.reservation.day;
-  console.log("reservation del front ");
-  console.log(reservation);
   const handleClick = () => {
     const data = {
       user: userEmail,
@@ -30,6 +28,7 @@ const Reservation = () => {
       service: dataPackage.title,
       artist: dataArtist.name,
     };
+    console.log(data);
     RegisterReservation(data)
       .then((response) => {
         if (response.status === 200) {
@@ -88,9 +87,6 @@ const Reservation = () => {
                   </Button>
                 </Col>
               </Row>
-              {console.log("este es el paquete de la confirmation")}
-              {console.log(day)}
-              {console.log(dataPackage.price.$numberDecimal)}
             </Card.Body>
             <Card.Footer className="text-muted">Mostaho</Card.Footer>
           </Card>

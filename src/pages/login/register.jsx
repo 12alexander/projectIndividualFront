@@ -23,7 +23,6 @@ const Login = () => {
     return state;
   });
   const dataArtist = reservation.reservation.token;
-  console.log(dataArtist);
   const [bol, setBol] = useState("");
   const [user, setUser] = useState({
     email: "",
@@ -31,21 +30,17 @@ const Login = () => {
   });
   const handleClick = (e) => {
     e.preventDefault();
-    console.log("tokennnn");
+
 
     RegisterLogin(user)
       .then((response) => {
         if (response.status === 200) {
           navigate(`/`);
-          console.log("paso");
         }
       })
       .catch((err) => {
         console.log(err);
       });
-
-    console.log("**************** reservation");
-    console.log(reservation);
   };
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -56,8 +51,6 @@ const Login = () => {
       ? reservation.reservation.reservation.token
       : "";
     if (token != "") navigate(`/`);
-    console.log(token);
-    console.log(reservation.reservation.reservation.token);
   }, []);
   return (
     <>

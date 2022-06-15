@@ -6,16 +6,14 @@ const RegisterPackage = (data) => {
   const url =
     process.env.REACT_APP_BACKEND_ENDPOINT.concat("api/package/create");
   //const url = "http://localhost:5000/api/package/create";
-  console.log("----------");
+
   const formData = new FormData();
-  console.log("----------");
+
   formData.append("title", data.title);
   formData.append("description", data.description);
   formData.append("price", data.price);
   Array.from(data.images).forEach((el, i) => {
     formData.append(`images[${i}]`, el);
-    console.log("imagenes");
-    console.log(el);
   });
 
   return axios.post(url, formData);

@@ -28,7 +28,6 @@ const ComponentForm = () => {
   const getDataService = () => {
     GetPackage().then((datos) => {
       setDataService(datos.value);
-      console.log(datos.value);
     });
   };
 
@@ -86,7 +85,7 @@ const ComponentForm = () => {
           ))}
         </div>
         <Button variant="primary" onClick={handleData}>
-          Submit
+          Registrar
         </Button>
       </Form>
     </>

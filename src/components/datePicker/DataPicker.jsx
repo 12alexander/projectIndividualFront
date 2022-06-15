@@ -38,10 +38,6 @@ const DataPicker = ({ setDay, hours, setHours }) => {
                     dataArtist,
                     day: e.target.value,
                   });
-                  console.log("hoursssss");
-                  console.log(hours);
-                  console.log("*-/****");
-                  console.log(dataHours);
                   if (dataHours.length > 0) {
                     dataHours.forEach((e) => {
                       const index = initialHours.indexOf(e.time);
@@ -66,8 +62,6 @@ const DataPicker = ({ setDay, hours, setHours }) => {
                         ]
                       : newHours;*/
                   setHours(initialHours);
-                  console.log("nuevo arreglo");
-                  console.log(initialHours);
                 }}
               />
             </Form.Group>
