@@ -4,8 +4,8 @@ Una aplicación para reservar citas en nuestra barberia, donde podrias elegir el
 
 ## Inicio de Sesión. 
 **cuenta con permisos de administrador**
--**email** : alex18escorpio@gmail.com
--**contraseña** : 123456789
+- **email** : alex18escorpio@gmail.com
+- **contraseña** : 123456789
 
 ## Versión de Node.js : 16
 
