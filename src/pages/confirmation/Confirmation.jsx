@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import ComponentNavbar from "../../components/navBar/NavBar";
 import { Container, Row, Col, Card, Button } from "react-bootstrap/";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { RegisterReservation } from "../../api/reservation/reservation";
 import "./confirmation.css";
 
@@ -27,8 +26,7 @@ const Reservation = () => {
       price: dataPackage.price.$numberDecimal,
       service: dataPackage.title,
       artist: dataArtist.name,
-    };
-    console.log(data);
+    };    
     RegisterReservation(data)
       .then((response) => {
         if (response.status === 200) {

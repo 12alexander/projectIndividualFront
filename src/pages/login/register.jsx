@@ -1,28 +1,16 @@
-//import { Link } from "react-router-dom";
 import { useState } from "react";
-import {
-  Card,
-  Button,
-  Col,
-  Row,
-  Form,
-  Container,
-  Alert,
-} from "react-bootstrap/";
+import { Card, Button, Row, Form, Container, Alert } from "react-bootstrap/";
 import { RegisterLogin } from "../../api/login/login";
 import ComponentNavbar from "../../components/navBar/NavBar";
-import { setReservation } from "../../store/slices/reservation";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const Login = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const reservation = useSelector((state) => {
     return state;
   });
-  const dataArtist = reservation.reservation.token;
   const [bol, setBol] = useState("");
   const [user, setUser] = useState({
     email: "",
@@ -30,7 +18,6 @@ const Login = () => {
   });
   const handleClick = (e) => {
     e.preventDefault();
-
 
     RegisterLogin(user)
       .then((response) => {
@@ -50,8 +37,8 @@ const Login = () => {
     const token = reservation.reservation.reservation.token
       ? reservation.reservation.reservation.token
       : "";
-    if (token != "") navigate(`/`);
-  }, []);
+    if (token !== "") navigate(`/`);
+  }, [navigate, reservation.reservation.reservation.token]);
   return (
     <>
       <ComponentNavbar />

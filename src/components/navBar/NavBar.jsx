@@ -1,6 +1,4 @@
 import React from "react";
-//import "./packages.css";
-import "./NavBar.css";
 import IMG from "../../assets/logo_negro_mostacho.png";
 import { useNavigate } from "react-router-dom";
 import { Navbar, Container, Nav, NavDropdown, Image } from "react-bootstrap/";
@@ -57,6 +55,7 @@ const ComponentNavbar = () => {
                 onClick={() => {
                   navigate("/login");
                 }}
+                id="test-login"
               >
                 Iniciar Sesión
               </NavDropdown.Item>
@@ -72,7 +71,6 @@ const ComponentNavbar = () => {
                 onClick={() => {
                   navigate("/");
                   dispatch(deleteToken({}));
-                  console.log("hola");
                 }}
               >
                 Salir

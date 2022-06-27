@@ -1,4 +1,3 @@
-//import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { Card, Button, Col, Row } from "react-bootstrap/";
@@ -27,6 +26,11 @@ const CardReservation = () => {
 
   const dataArtist = reservation.reservation.artist;
   const dataPackage = reservation.reservation.package;
+  useEffect(() => {
+    if (reservation.reservation.token === undefined) {
+      navigate(`/`);
+    }
+  }, [navigate, reservation.reservation.token]);
   return (
     <div className="container" style={{ paddingTop: "3.5rem" }}>
       <div className="row">

@@ -17,7 +17,6 @@ const CardPackages = () => {
   const getDataPackage = () => {
     GetPackage().then((datos) => {
       setDataPackage(datos.value);
-      console.log(datos.value);
     });
   };
   useEffect(getDataPackage, []);

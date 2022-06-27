@@ -1,36 +1,25 @@
 import React from "react";
 import logo from "../../../assets/logo_blanco_mostacho.png";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 export default function Aside() {
-  const reservation = useSelector((state) => {
-    return state;
-  });
   let navigate = useNavigate();
 
-  //const token = reservation.reservation.reservation.token;
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
-      {/* Brand Logo */}
-
       <img
         src={logo}
         alt="AdminLTE Logo"
         className="brand-image elevation-3"
         style={{ opacity: ".8" }}
       />
-
-      {/* Sidebar */}
       <div className="sidebar">
-        {/* Sidebar user panel (optional) */}
         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
           <div className="info">
             <a href="#" className="d-block"></a>
           </div>
         </div>
 
-        {/* Sidebar Menu /dashboard/artist/view */}
         <nav className="mt-2">
           <ul
             className="nav nav-pills nav-sidebar flex-column"
@@ -96,9 +85,7 @@ export default function Aside() {
             </li>
           </ul>
         </nav>
-        {/* /.sidebar-menu */}
       </div>
-      {/* /.sidebar */}
     </aside>
   );
 }

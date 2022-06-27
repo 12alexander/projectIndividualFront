@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { RegisterArtist } from "../../../api/artist/artist";
 import { GetPackage } from "../../../api/packages/packages";
-import { Card, Button, Col, Row, Form, Alert } from "react-bootstrap/";
+import { Button, Col, Form, Alert } from "react-bootstrap/";
 
 const ComponentForm = () => {
   const [message, setMessage] = useState("");
@@ -33,7 +33,6 @@ const ComponentForm = () => {
 
   const handleOnChange = (e) => {
     var { name, checked } = e.target;
-    // eslint-disable-next-line no-unused-expressions
     if (checked === true) {
       setDataArtist({
         ...dataArtist,
@@ -53,6 +52,7 @@ const ComponentForm = () => {
         <Form.Group as={Col} className="mb-3">
           <Form.Label>Nombre</Form.Label>
           <Form.Control
+            name="name"
             type="text"
             placeholder="Ingrese Nombre"
             onChange={(event) => {
@@ -84,7 +84,7 @@ const ComponentForm = () => {
             />
           ))}
         </div>
-        <Button variant="primary" onClick={handleData}>
+        <Button btn="test-register" variant="primary" onClick={handleData}>
           Registrar
         </Button>
       </Form>

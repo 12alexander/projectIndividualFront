@@ -1,14 +1,5 @@
-//import { Link } from "react-router-dom";
 import { useState } from "react";
-import {
-  Card,
-  Button,
-  Col,
-  Row,
-  Form,
-  Container,
-  Alert,
-} from "react-bootstrap/";
+import { Card, Button, Row, Form, Container, Alert } from "react-bootstrap/";
 import { PostLogin } from "../../api/login/login";
 import ComponentNavbar from "../../components/navBar/NavBar";
 import { setReservation } from "../../store/slices/reservation";
@@ -22,7 +13,6 @@ const Login = () => {
   const reservation = useSelector((state) => {
     return state;
   });
-  const dataArtist = reservation.reservation.token;
 
   const [bol, setBol] = useState("");
   const [user, setUser] = useState({
@@ -31,7 +21,6 @@ const Login = () => {
   });
   const handleClick = (e) => {
     e.preventDefault();
-
 
     PostLogin(user)
       .then((response) => {
@@ -54,7 +43,6 @@ const Login = () => {
       .catch((err) => {
         console.log(err);
       });
-
   };
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -64,8 +52,8 @@ const Login = () => {
     const token = reservation.reservation.reservation.token
       ? reservation.reservation.reservation.token
       : "";
-    if (token != "") navigate(`/`);
-  }, []);
+    if (token !== "") navigate(`/`);
+  }, [navigate, reservation.reservation.reservation.token]);
   return (
     <>
       <ComponentNavbar />
@@ -92,11 +80,11 @@ const Login = () => {
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Usuario</Form.Label>
+                <Form.Label>Correo</Form.Label>
                 <Form.Control
                   name="email"
                   type="text"
-                  placeholder="Usuario"
+                  placeholder="correo"
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -119,7 +107,9 @@ const Login = () => {
                   marginTop: "1.5rem",
                 }}
               >
-                <Button type="submit">Iniciar Sesión</Button>
+                <Button type="submit" name="test-iniciar-sesion">
+                  Iniciar Sesión
+                </Button>
                 <Button>Cancelar</Button>
               </Row>
             </Card.Body>

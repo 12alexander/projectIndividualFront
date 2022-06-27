@@ -1,8 +1,7 @@
 import React from "react";
-import { useState } from "react";
+
 import { Form } from "react-bootstrap";
-import { setReservation } from "../../store/slices/reservation";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { GetHours } from "../../api/reservation/reservation";
 
 const DataPicker = ({ setDay, hours, setHours }) => {
@@ -47,20 +46,6 @@ const DataPicker = ({ setDay, hours, setHours }) => {
                     });
                   }
 
-                  // eslint-disable-next-line no-unused-expressions
-                  /*console.log(newHours.length);
-                  newHours =
-                    newHours.length === 0
-                      ? [
-                          "8:00",
-                          "9:30",
-                          "11:00",
-                          "12:30",
-                          "16:00",
-                          "17:30",
-                          "19:00",
-                        ]
-                      : newHours;*/
                   setHours(initialHours);
                 }}
               />

@@ -1,8 +1,8 @@
 //import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {} from "../../../api/packages/packages";
 import { RegisterPackage } from "../../../api/packages/packages";
-import { Alert, Button, Col, Row, Form } from "react-bootstrap/";
+import { Alert, Button, Col, Form } from "react-bootstrap/";
 
 const ComponentForm = () => {
   const [message, setMessage] = useState("");
@@ -57,12 +57,14 @@ const ComponentForm = () => {
                 description: event.target.value,
               })
             }
+            name="description"
           />
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Label>Precio</Form.Label>
           <Form.Control
+          name="price"
             placeholder="Ingrese Precio"
             onChange={(event) =>
               setDataPackages({ ...dataPackages, price: event.target.value })
@@ -81,7 +83,7 @@ const ComponentForm = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" onClick={handleData}>
+        <Button variant="primary" name="btn-registrar" onClick={handleData}>
           Registrar
         </Button>
       </Form>

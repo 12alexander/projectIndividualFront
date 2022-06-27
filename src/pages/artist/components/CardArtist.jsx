@@ -1,4 +1,3 @@
-//import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { GetArtist, DeleteArtist } from "../../../api/artist/artist";
 import { Card, Button, Col, Row } from "react-bootstrap/";

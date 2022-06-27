@@ -1,11 +1,8 @@
-import { useState } from "react";
-import { Alert } from "react-bootstrap";
 import axios from "axios";
 
 const RegisterPackage = (data) => {
   const url =
     process.env.REACT_APP_BACKEND_ENDPOINT.concat("api/package/create");
-  //const url = "http://localhost:5000/api/package/create";
 
   const formData = new FormData();
 
@@ -23,7 +20,6 @@ const GetPackage = async () => {
   const url = process.env.REACT_APP_BACKEND_ENDPOINT.concat(
     "api/package/getData"
   );
-  //const url = "http://localhost:5000/api/package/getData";
   let dataPackage = {};
   try {
     dataPackage = await axios(url);

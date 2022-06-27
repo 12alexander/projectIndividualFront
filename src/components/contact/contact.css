@@ -1,0 +1,37 @@
+.container-contact {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  width: 80%;
+  padding-bottom: 1rem;
+}
+
+.container-img {
+  object-fit: cover;
+}
+
+.contac-img {
+  height: 100%;
+  width: 100%;
+  padding-left: 1rem;
+}
+
+.contact-input {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.frm-contact {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .container-img {
+    display: none;
+    background-color: red;
+  }
+  .container-contact {
+    display: grid;
+    grid-template-columns: repeat(1, 80%);
+    padding-bottom: 1rem;
+  }
+}

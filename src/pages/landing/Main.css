@@ -20,13 +20,9 @@
 }
 
 .btn-enviar {
-  padding: 25px !important;
+  padding: 15px !important;
   background-color: black !important;
   color: white;
-}
-
-.contac-body {
-  padding-top: 10%;
 }
 
 .contac-img {

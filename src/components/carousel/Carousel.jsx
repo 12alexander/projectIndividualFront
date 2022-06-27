@@ -2,7 +2,6 @@ import React from "react";
 import "./carousel.css";
 import { Button, Figure } from "react-bootstrap";
 import IMG from "../../assets/logo_blanco_mostacho.png";
-//import "../../../public/portada.jpg";
 
 const ComponentCarousel = () => (
   <div className="main-content">

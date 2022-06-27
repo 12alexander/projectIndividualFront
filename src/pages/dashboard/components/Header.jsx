@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteToken } from "../../../store/slices/reservation";
 import { useNavigate } from "react-router-dom";
 
@@ -7,16 +8,14 @@ export default function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <nav className="main-header navbar navbar-expand navbar-white navbar-light">
-      {/* Left navbar links */}
+    <nav className="main-header navbar navbar-expand navbar-white navbar-light">      
       <ul className="navbar-nav">
         <li className="nav-item">
           <a className="nav-link" data-widget="pushmenu" href="#" role="button">
             <i className="fas fa-bars" />
           </a>
         </li>
-      </ul>
-      {/* Right navbar links */}
+      </ul>      
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <a
@@ -49,7 +48,6 @@ export default function Header() {
             onClick={() => {
               navigate("/");
               dispatch(deleteToken({}));
-      
             }}
           >
             Salir
