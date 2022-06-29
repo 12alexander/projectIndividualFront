@@ -65,11 +65,11 @@ const Login = () => {
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Usuario</Form.Label>
+                <Form.Label>Correo</Form.Label>
                 <Form.Control
                   name="email"
                   type="text"
-                  placeholder="Usuario"
+                  placeholder="Correo"
                   onChange={handleChange}
                 />
               </Form.Group>
