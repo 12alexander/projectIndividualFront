@@ -1,10 +1,14 @@
 import axios from "axios";
 
+const api = axios.create({
+  withCredentials: true,
+});
+
 const PostLogin = (data) => {
   const config = { headers: { "Content-Type": "application/json" } };
   const url = process.env.REACT_APP_BACKEND_ENDPOINT.concat("api/user/login");
 
-  return axios.post(url, data, config);
+  return api.post(url, data, config);
 };
 
 const RegisterLogin = (data) => {
@@ -12,7 +16,7 @@ const RegisterLogin = (data) => {
   const url =
     process.env.REACT_APP_BACKEND_ENDPOINT.concat("api/user/register");
 
-  return axios.post(url, data, config);
+  return api.post(url, data, config);
 };
 
 export { PostLogin, RegisterLogin };
