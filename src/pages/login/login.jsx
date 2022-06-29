@@ -33,10 +33,11 @@ const Login = () => {
               type: response.data.type,
             })
           );
+
           if (response.data.type === "admin") {
-            navigate(`/dashboard`);
+            navigate("/dashboard");
           } else {
-            navigate(`/`);
+            navigate("/");
           }
         }
       })
@@ -53,7 +54,7 @@ const Login = () => {
       ? reservation.reservation.reservation.token
       : "";
     if (token !== "") navigate(`/`);
-  }, [navigate, reservation.reservation.reservation.token]);
+  }, [navigate]);
   return (
     <>
       <ComponentNavbar />

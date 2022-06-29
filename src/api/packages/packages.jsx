@@ -15,6 +15,13 @@ const RegisterPackage = (data) => {
 
   return axios.post(url, formData);
 };
+const DeletePakage = (data) => {
+  const config = { headers: { "Content-Type": "application/json" } };
+  const url = process.env.REACT_APP_BACKEND_ENDPOINT.concat(
+    "api/package/removePackage"
+  );
+  return axios.post(url, data, config);
+};
 
 const GetPackage = async () => {
   const url = process.env.REACT_APP_BACKEND_ENDPOINT.concat(
@@ -29,4 +36,4 @@ const GetPackage = async () => {
   return dataPackage.data;
 };
 
-export { GetPackage, RegisterPackage };
+export { GetPackage, RegisterPackage, DeletePakage };

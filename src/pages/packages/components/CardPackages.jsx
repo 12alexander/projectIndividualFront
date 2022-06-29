@@ -1,6 +1,5 @@
-//import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { GetPackage } from "../../../api/packages/packages";
+import { GetPackage, DeletePakage } from "../../../api/packages/packages";
 import { Card, Button, Col, Row } from "react-bootstrap/";
 import { setReservation } from "../../../store/slices/reservation";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,7 +32,24 @@ const CardPackages = () => {
                 <Card.Title>{e.title}</Card.Title>
                 <Card.Text>{e.description}</Card.Text>
 
-                {type === "admin" && <Button variant="danger">Eliminar</Button>}
+                {type === "admin" && (
+                  <Button
+                    variant="danger"
+                    onClick={async () => {
+                      DeletePakage({ id: e._id });
+                      let tempDataPackage = [...dataPackage];
+                      tempDataPackage = tempDataPackage.filter(
+                        (element) => element.id !== e._id
+                      );
+                      setDataPackage(tempDataPackage);
+
+                      await navigate(`/dashboard/package/create`);
+                      navigate(`/dashboard/package/view`);
+                    }}
+                  >
+                    Eliminar
+                  </Button>
+                )}
                 {type !== "admin" && (
                   <Button
                     variant="secondary"

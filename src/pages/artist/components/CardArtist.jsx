@@ -47,14 +47,15 @@ const CardArtist = () => {
                 {type === "admin" && (
                   <Button
                     variant="danger"
-                    onClick={() => {
+                    onClick={async () => {
                       DeleteArtist({ id: e._id });
                       let tempDataArtist = [...dataArtist];
                       tempDataArtist = tempDataArtist.filter(
                         (element) => element.id !== e._id
                       );
                       setDataArtist(tempDataArtist);
-                      navigate(`/dashboard/artist`);
+
+                      await navigate(`/dashboard/artist/create`);
                       navigate(`/dashboard/artist/view`);
                     }}
                   >
